@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
     <title>Sweet Home - Imóveis de Alto Padrão</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -11,6 +12,12 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Cloudinary CDN for optimized image delivery -->
+    <link rel="preconnect" href="https://res.cloudinary.com/" />
+
+    <!-- Unsplash CDN for high-quality stock images -->
+    <link rel="preconnect" href="https://images.unsplash.com/" />
 
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -21,6 +28,13 @@
         theme: {
           extend: {
             colors: {
+              "sh-olive": "#606C38",
+              "sh-dark": "#283618",
+              "sh-cream": "#FEFAE0",
+              "sh-tan": "#DDA15E",
+              "sh-rust": "#BC6C25",
+              "sh-darker": "#182210",
+              "sh-card-dark": "#1f2a13",
               brand: {
                 olive: "#606C38",
                 darkolive: "#283618",
@@ -32,6 +46,10 @@
             fontFamily: {
               sans: ["Inter", "sans-serif"],
               display: ["Oswald", "sans-serif"],
+            },
+            boxShadow: {
+              luxury: "0 20px 40px -15px rgba(40, 54, 24, 0.15)",
+              glow: "0 0 25px rgba(221, 161, 94, 0.25)",
             },
           },
         },
@@ -58,11 +76,21 @@
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
+          <!-- Brand Logo -->
           <a href="#" class="flex items-center gap-3 group">
             <img
-              src="https://res.cloudinary.com/dnzfvkgag/image/upload/v1786754786/logo_eibtkq.png"
+              src="https://res.cloudinary.com/dnzfvkgag/image/upload/v1787366987/shome-invert_wqnuji.png"
               alt="Sweet Home Logo"
               class="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
+              onerror="
+                this.src =
+                  'https://placehold.co/180x60/283618/FEFAE0?text=SWEET+HOME'
+              "
+              width="150"
+              height="50"
+              loading="lazy"
+              decoding="async"
+              fetchpriority="low"
             />
           </a>
 
@@ -207,6 +235,7 @@
       </div>
     </header>
 
+    <!-- Hero Section -->
     <section
       class="relative min-h-[85vh] sm:min-h-screen flex items-center pt-24 pb-16 bg-brand-darkolive overflow-hidden"
     >
@@ -215,6 +244,15 @@
           src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=2000"
           alt="Mansão moderna"
           class="w-full h-full object-cover object-center opacity-30"
+          width="2000"
+          height="1200"
+          onerror="
+            this.src =
+              'https://placehold.co/2000x1200/283618/FEFAE0?text=SWEET+HOME'
+          "
+          loading="eager"
+          decoding="sync"
+          fetchpriority="high"
         />
         <div
           class="absolute inset-0 bg-gradient-to-t from-brand-darkolive via-brand-darkolive/70 to-transparent"
@@ -258,10 +296,10 @@
               <i data-lucide="arrow-right" class="w-5 h-5"></i>
             </a>
             <a
-              href="#quem-somos"
+              href="#contato"
               class="w-full sm:w-auto px-8 py-4 rounded-xl border border-brand-cream/30 hover:border-brand-sand text-brand-cream hover:text-brand-sand font-medium transition-all duration-300 text-center"
             >
-              Conheça Nossa História
+              Já Escolhi Meu Imóvel
             </a>
           </div>
         </div>
@@ -484,6 +522,14 @@
                 src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&q=80&w=1000"
                 alt="Residência Horizon"
                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                width="1000"
+                height="667"
+                onerror="
+                  this.src =
+                    'https://placehold.co/1000x667/283618/FEFAE0?text=SWEET+HOME'
+                "
+                loading="lazy"
+                decoding="async"
               />
               <span
                 class="absolute top-4 left-4 bg-brand-darkolive/90 backdrop-blur-md text-brand-cream text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-wider"
@@ -538,6 +584,10 @@
                 src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1000"
                 alt="Edgewood Villa"
                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                width="1000"
+                height="667"
+                loading="lazy"
+                decoding="async"
               />
               <span
                 class="absolute top-4 left-4 bg-brand-sand text-brand-darkolive font-bold text-xs px-3 py-1.5 rounded-full uppercase tracking-wider"
@@ -592,6 +642,10 @@
                 src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=1000"
                 alt="Fazenda Vale das Brisas"
                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                width="1000"
+                height="667"
+                loading="lazy"
+                decoding="async"
               />
               <span
                 class="absolute top-4 left-4 bg-brand-olive text-brand-cream text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-wider"
@@ -639,8 +693,200 @@
       </div>
     </section>
 
+    <!-- ABOUT SECTION (QUEM SOMOS) -->
     <section
       id="quem-somos"
+      class="py-20 bg-sh-dark text-sh-cream relative overflow-hidden"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <!-- Left Image Grid -->
+          <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+            <img
+              src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&auto=format&fit=crop"
+              alt="Interior Luxuoso Sweet Home"
+              class="rounded-3xl object-cover h-80 w-full shadow-2xl border border-sh-olive/40 transform -rotate-1 hover:rotate-0 transition-transform duration-500"
+              width="800"
+              height="600"
+              onerror="
+                this.src =
+                  'https://placehold.co/800x600/283618/FEFAE0?text=SWEET+HOME'
+              "
+              loading="lazy"
+              decoding="async"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=800&auto=format&fit=crop"
+              alt="Propriedade Rural Sweet Home"
+              class="rounded-3xl object-cover h-80 w-full shadow-2xl border border-sh-olive/40 mt-8 transform rotate-1 hover:rotate-0 transition-transform duration-500"
+              width="800"
+              height="600"
+              onerror="
+                this.src =
+                  'https://placehold.co/800x600/283618/FEFAE0?text=SWEET+HOME'
+              "
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          <!-- Right Content -->
+          <div class="lg:col-span-6 space-y-6">
+            <span
+              class="text-xs font-bold uppercase tracking-widest text-sh-tan"
+              >Sobre a Sweet Home</span
+            >
+            <h2
+              class="text-3xl sm:text-5xl font-heading font-bold text-white uppercase leading-tight"
+            >
+              Tradição em Negócios Imobiliários de Alto Valor
+            </h2>
+            <p class="text-gray-300 leading-relaxed font-light">
+              Fundada com a missão de transformar transações imobiliárias em
+              experiências de absoluta confiança, a
+              <strong class="text-sh-tan font-semibold">Sweet Home</strong> é
+              referência regional em ativos residenciais de alto padrão,
+              fazendas produtivas e espaços corporativos de alto desempenho.
+            </p>
+            <p class="text-gray-300 leading-relaxed font-light">
+              Nossa equipe multidisciplinar alia tecnologia de ponta,
+              inteligência de mercado e atendimento humanizado para garantir
+              segurança jurídica e máxima valorização patrimonial aos nossos
+              clientes.
+            </p>
+
+            <div
+              class="grid grid-cols-2 gap-6 pt-4 border-t border-sh-olive/40"
+            >
+              <div class="space-y-1">
+                <i data-lucide="shield-check" class="w-8 h-8 text-sh-tan"></i>
+                <h4 class="font-heading font-bold uppercase text-white text-lg">
+                  Segurança Jurídica
+                </h4>
+                <p class="text-xs text-gray-400">
+                  Análise minuciosa de toda documentação para transações 100%
+                  seguras.
+                </p>
+              </div>
+              <div class="space-y-1">
+                <i data-lucide="sparkles" class="w-8 h-8 text-sh-tan"></i>
+                <h4 class="font-heading font-bold uppercase text-white text-lg">
+                  Curadoria Exclusiva
+                </h4>
+                <p class="text-xs text-gray-400">
+                  Seleção criteriosa dos imóveis mais nobres do mercado.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES SECTION ("End-to-End Solutions") -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-2">
+        <span class="text-xs font-bold uppercase tracking-widest text-sh-rust"
+          >Especialidades Imobiliárias</span
+        >
+        <h2
+          class="text-3xl sm:text-5xl font-heading font-bold text-sh-dark uppercase"
+        >
+          Soluções Integradas Para Seu Patrimônio
+        </h2>
+        <p class="text-gray-600 font-light text-base">
+          Atendimento sob medida para cada segmento do mercado imobiliário.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Service 1: Urbanos -->
+        <div
+          class="bg-white rounded-3xl p-8 border border-sh-tan/30 shadow-lg hover:shadow-xl transition-all group hover:-translate-y-1"
+        >
+          <div
+            class="w-14 h-14 bg-sh-cream rounded-2xl flex items-center justify-center text-sh-rust mb-6 border border-sh-tan/40 group-hover:bg-sh-rust group-hover:text-white transition-colors"
+          >
+            <i data-lucide="building-2" class="w-7 h-7"></i>
+          </div>
+          <h3
+            class="text-2xl font-heading font-bold text-sh-dark uppercase mb-3"
+          >
+            Imóveis Urbanos
+          </h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-6 font-light">
+            Apartamentos de alto padrão, penthouses, mansões em condomínios
+            fechados e residências nas localizações mais nobres da cidade.
+          </p>
+          <a
+            href="#imoveis"
+            onclick="filterCategory('urbanos')"
+            class="text-xs font-bold uppercase tracking-wider text-sh-rust hover:text-sh-dark inline-flex items-center gap-2"
+          >
+            Ver Opções Urbanas <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <!-- Service 2: Rurais -->
+        <div
+          class="bg-white rounded-3xl p-8 border border-sh-tan/30 shadow-lg hover:shadow-xl transition-all group hover:-translate-y-1"
+        >
+          <div
+            class="w-14 h-14 bg-sh-cream rounded-2xl flex items-center justify-center text-sh-olive mb-6 border border-sh-tan/40 group-hover:bg-sh-olive group-hover:text-white transition-colors"
+          >
+            <i data-lucide="trees" class="w-7 h-7"></i>
+          </div>
+          <h3
+            class="text-2xl font-heading font-bold text-sh-dark uppercase mb-3"
+          >
+            Imóveis Rurais
+          </h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-6 font-light">
+            Fazendas para pecuária e lavoura, sítios de recreio, haras e áreas
+            com aptidão agrícola com georreferenciamento atualizado.
+          </p>
+          <a
+            href="#imoveis"
+            onclick="filterCategory('rurais')"
+            class="text-xs font-bold uppercase tracking-wider text-sh-olive hover:text-sh-dark inline-flex items-center gap-2"
+          >
+            Ver Opções Rurais <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <!-- Service 3: Comerciais -->
+        <div
+          class="bg-white rounded-3xl p-8 border border-sh-tan/30 shadow-lg hover:shadow-xl transition-all group hover:-translate-y-1"
+        >
+          <div
+            class="w-14 h-14 bg-sh-cream rounded-2xl flex items-center justify-center text-sh-dark mb-6 border border-sh-tan/40 group-hover:bg-sh-dark group-hover:text-white transition-colors"
+          >
+            <i data-lucide="briefcase" class="w-7 h-7"></i>
+          </div>
+          <h3
+            class="text-2xl font-heading font-bold text-sh-dark uppercase mb-3"
+          >
+            Ativos Comerciais
+          </h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-6 font-light">
+            Salas corporativas, lajes inteiras, galpões logísticos e terrenos
+            estratégicos para expansão de empreendimentos.
+          </p>
+          <a
+            href="#imoveis"
+            onclick="filterCategory('comerciais')"
+            class="text-xs font-bold uppercase tracking-wider text-sh-dark hover:text-sh-rust inline-flex items-center gap-2"
+          >
+            Ver Opções Comerciais
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Soluções da Sweet Home -->
+    <section
+      id="solucoes"
       class="py-16 sm:py-24 bg-brand-darkolive text-brand-cream"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -713,6 +959,319 @@
       </div>
     </section>
 
+    <!-- CONTACT SECTION (CONTATO) -->
+    <section id="contato" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div
+        class="bg-gradient-to-br from-sh-dark to-sh-darker rounded-3xl overflow-hidden shadow-2xl border border-sh-olive/30 p-8 sm:p-12"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-5 text-sh-cream space-y-6">
+            <span
+              class="text-xs font-bold uppercase tracking-widest text-sh-tan"
+              >Atendimento Exclusivo</span
+            >
+            <h2
+              class="text-3xl sm:text-5xl font-heading font-bold text-white uppercase leading-tight"
+            >
+              Fale Com Nossos Consultores
+            </h2>
+            <p class="text-gray-300 text-sm font-light leading-relaxed">
+              Deseja agendar uma visita privada ou precisa de consultoria
+              personalizada para compra, venda ou locação? Preencha os campos e
+              entraremos em contato.
+            </p>
+
+            <div class="space-y-4 pt-4">
+              <div class="flex items-center gap-4">
+                <div class="p-3 bg-sh-olive/30 rounded-xl text-sh-tan">
+                  <i data-lucide="phone-call" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <span
+                    class="block text-xs text-gray-400 uppercase font-medium"
+                    >Central de Atendimento</span
+                  >
+                  <span
+                    class="text-lg font-bold text-white font-heading tracking-wide"
+                    >(67) 3300-0000</span
+                  >
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4">
+                <div class="p-3 bg-sh-olive/30 rounded-xl text-sh-tan">
+                  <i data-lucide="mail" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <span
+                    class="block text-xs text-gray-400 uppercase font-medium"
+                    >E-mail Corporativo</span
+                  >
+                  <span class="text-base font-medium text-white"
+                    >contato@sweethomeimoveis.com.br</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <div
+            class="lg:col-span-7 bg-sh-cream p-6 sm:p-8 rounded-2xl text-sh-dark shadow-lg"
+          >
+            <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label
+                    class="block text-xs font-bold uppercase tracking-wider text-sh-dark mb-1"
+                    >Nome Completo</label
+                  >
+                  <input
+                    type="text"
+                    required
+                    placeholder="Seu nome"
+                    class="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 focus:border-sh-rust focus:ring-2 focus:ring-sh-rust/20 outline-none text-sm font-medium"
+                  />
+                </div>
+                <div>
+                  <label
+                    class="block text-xs font-bold uppercase tracking-wider text-sh-dark mb-1"
+                    >Telefone / WhatsApp</label
+                  >
+                  <input
+                    type="tel"
+                    required
+                    placeholder="(00) 00000-0000"
+                    class="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 focus:border-sh-rust focus:ring-2 focus:ring-sh-rust/20 outline-none text-sm font-medium"
+                  />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label
+                    class="block text-xs font-bold uppercase tracking-wider text-sh-dark mb-1"
+                    >E-mail</label
+                  >
+                  <input
+                    type="email"
+                    required
+                    placeholder="seuemail@exemplo.com"
+                    class="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 focus:border-sh-rust focus:ring-2 focus:ring-sh-rust/20 outline-none text-sm font-medium"
+                  />
+                </div>
+                <div>
+                  <label
+                    class="block text-xs font-bold uppercase tracking-wider text-sh-dark mb-1"
+                    >Interesse</label
+                  >
+                  <select
+                    class="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 focus:border-sh-rust focus:ring-2 focus:ring-sh-rust/20 outline-none text-sm font-medium"
+                  >
+                    <option value="comprar">Comprar Imóvel</option>
+                    <option value="alugar">Alugar Imóvel</option>
+                    <option value="vender">Anunciar Imóvel</option>
+                    <option value="outro">Outros Assuntos</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label
+                  class="block text-xs font-bold uppercase tracking-wider text-sh-dark mb-1"
+                  >Mensagem</label
+                >
+                <textarea
+                  rows="3"
+                  placeholder="Como podemos lhe ajudar hoje?"
+                  class="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 focus:border-sh-rust focus:ring-2 focus:ring-sh-rust/20 outline-none text-sm font-medium resize-none"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full bg-sh-rust hover:bg-sh-dark text-white font-heading uppercase font-bold py-4 rounded-xl text-base tracking-wider transition-all shadow-md"
+              >
+                Enviar Mensagem
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UNIDADES SECTION -->
+    <section id="unidades" class="py-20 bg-sh-darker text-sh-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6"
+        >
+          <div>
+            <span
+              class="text-xs font-bold uppercase tracking-widest text-sh-tan"
+              >Presença Regional</span
+            >
+            <h2
+              class="text-3xl sm:text-5xl font-heading font-bold text-white uppercase mt-1"
+            >
+              Nossas Unidades
+            </h2>
+          </div>
+          <p class="text-gray-400 text-sm max-w-md font-light">
+            Escritórios estrategicamente estruturados para proporcionar um
+            atendimento exclusivo com total discrição e conforto.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Unidade Central -->
+          <div
+            class="bg-sh-card-dark rounded-3xl p-6 border border-sh-olive/30 space-y-4 hover:border-sh-tan/50 transition-all"
+          >
+            <div class="relative h-48 rounded-2xl overflow-hidden mb-4">
+              <img
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop"
+                alt="Unidade Central"
+                class="w-full h-full object-cover"
+                width="800"
+                height="600"
+                onerror="
+                  this.src =
+                    'https://placehold.co/800x600/283618/FEFAE0?text=SWEET+HOME'
+                "
+                loading="lazy"
+                decoding="async"
+              />
+              <span
+                class="absolute top-3 right-3 bg-sh-dark/90 backdrop-blur-md text-sh-tan text-xs font-bold px-3 py-1 rounded-full uppercase"
+                >Sede Corporativa</span
+              >
+            </div>
+            <h3 class="text-2xl font-heading font-bold uppercase text-white">
+              Unidade Central
+            </h3>
+            <p class="text-gray-400 text-xs flex items-center gap-2">
+              <i data-lucide="map-pin" class="w-4 h-4 text-sh-tan shrink-0"></i>
+              Av. Afonso Pena, 4500 - Jardim dos Estados
+            </p>
+            <p class="text-gray-400 text-xs flex items-center gap-2">
+              <i data-lucide="phone" class="w-4 h-4 text-sh-tan shrink-0"></i>
+              (67) 3300-1000
+            </p>
+            <p class="text-gray-400 text-xs flex items-center gap-2">
+              <i data-lucide="clock" class="w-4 h-4 text-sh-tan shrink-0"></i>
+              Seg a Sex: 08h às 18h | Sáb: 08h às 12h
+            </p>
+            <a
+              href="https://maps.google.com"
+              target="_blank"
+              class="w-full mt-2 inline-flex items-center justify-center gap-2 bg-sh-olive/30 hover:bg-sh-olive text-sh-cream py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors"
+            >
+              Como Chegar
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+
+          <!-- Unidade Alphaville -->
+          <div
+            class="bg-sh-card-dark rounded-3xl p-6 border border-sh-olive/30 space-y-4 hover:border-sh-tan/50 transition-all"
+          >
+            <div class="relative h-48 rounded-2xl overflow-hidden mb-4">
+              <img
+                src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=800&auto=format&fit=crop"
+                alt="Unidade Alphaville"
+                class="w-full h-full object-cover"
+                width="800"
+                height="600"
+                onerror="
+                  this.src =
+                    'https://placehold.co/800x600/283618/FEFAE0?text=SWEET+HOME'
+                "
+                loading="lazy"
+                decoding="async"
+              />
+              <span
+                class="absolute top-3 right-3 bg-sh-dark/90 backdrop-blur-md text-sh-tan text-xs font-bold px-3 py-1 rounded-full uppercase"
+                >Atendimento Prime</span
+              >
+            </div>
+            <h3 class="text-2xl font-heading font-bold uppercase text-white">
+              Unidade Alphaville
+            </h3>
+            <p class="text-gray-400 text-xs flex items-center gap-2">
+              <i data-lucide="map-pin" class="w-4 h-4 text-sh-tan shrink-0"></i>
+              Via Park, 1200 - Cidade Jardim
+            </p>
+            <p class="text-gray-400 text-xs flex items-center gap-2">
+              <i data-lucide="phone" class="w-4 h-4 text-sh-tan shrink-0"></i>
+              (67) 3300-2000
+            </p>
+            <p class="text-gray-400 text-xs flex items-center gap-2">
+              <i data-lucide="clock" class="w-4 h-4 text-sh-tan shrink-0"></i>
+              Seg a Sáb: 08h às 19h
+            </p>
+            <a
+              href="https://maps.google.com"
+              target="_blank"
+              class="w-full mt-2 inline-flex items-center justify-center gap-2 bg-sh-olive/30 hover:bg-sh-olive text-sh-cream py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors"
+            >
+              Como Chegar
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+
+          <!-- Unidade Campo & Agronegócio -->
+          <div
+            class="bg-sh-card-dark rounded-3xl p-6 border border-sh-olive/30 space-y-4 hover:border-sh-tan/50 transition-all"
+          >
+            <div class="relative h-48 rounded-2xl overflow-hidden mb-4">
+              <img
+                src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=800&auto=format&fit=crop"
+                alt="Unidade Agronegócios"
+                class="w-full h-full object-cover"
+                width="800"
+                height="600"
+                onerror="
+                  this.src =
+                    'https://placehold.co/800x600/283618/FEFAE0?text=SWEET+HOME'
+                "
+                loading="lazy"
+                decoding="async"
+              />
+              <span
+                class="absolute top-3 right-3 bg-sh-dark/90 backdrop-blur-md text-sh-tan text-xs font-bold px-3 py-1 rounded-full uppercase"
+                >Agronegócios</span
+              >
+            </div>
+            <h3 class="text-2xl font-heading font-bold uppercase text-white">
+              Unidade Campo & Agro
+            </h3>
+            <p class="text-gray-400 text-xs flex items-center gap-2">
+              <i data-lucide="map-pin" class="w-4 h-4 text-sh-tan shrink-0"></i>
+              Rod. BR-163, Km 04 - Polo Empresarial
+            </p>
+            <p class="text-gray-400 text-xs flex items-center gap-2">
+              <i data-lucide="phone" class="w-4 h-4 text-sh-tan shrink-0"></i>
+              (67) 3300-3000
+            </p>
+            <p class="text-gray-400 text-xs flex items-center gap-2">
+              <i data-lucide="clock" class="w-4 h-4 text-sh-tan shrink-0"></i>
+              Seg a Sex: 07:30 às 17:30
+            </p>
+            <a
+              href="https://maps.google.com"
+              target="_blank"
+              class="w-full mt-2 inline-flex items-center justify-center gap-2 bg-sh-olive/30 hover:bg-sh-olive text-sh-cream py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors"
+            >
+              Como Chegar
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
     <footer
       id="contato"
       class="bg-brand-darkolive border-t border-brand-sand/20 text-brand-cream pt-16 pb-8 mt-auto"
@@ -720,11 +1279,22 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div class="space-y-4">
-            <img
-              src="https://res.cloudinary.com/dnzfvkgag/image/upload/v1786754786/logo_eibtkq.png"
-              alt="Sweet Home"
-              class="h-10 w-auto"
-            />
+            <a href="#" class="flex items-center gap-3 group">
+              <img
+                src="https://res.cloudinary.com/dnzfvkgag/image/upload/v1787366987/shome-invert_wqnuji.png"
+                alt="Sweet Home Logo"
+                class="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
+                onerror="
+                  this.src =
+                    'https://placehold.co/180x60/283618/FEFAE0?text=SWEET+HOME'
+                "
+                width="150"
+                height="50"
+                loading="lazy"
+                decoding="async"
+                fetchpriority="low"
+              />
+            </a>
             <p class="text-xs text-brand-cream/70 leading-relaxed">
               Sua imobiliária de confiança para viver bem e investir com
               inteligência no segmento imobiliário de alto padrão.
@@ -796,23 +1366,59 @@
               Siga-nos
             </h4>
             <div class="flex items-center gap-3">
+              <!-- Instagram -->
               <a
                 href="#"
                 class="w-10 h-10 rounded-lg bg-brand-olive/30 hover:bg-brand-sand hover:text-brand-darkolive flex items-center justify-center transition-colors"
               >
-                <i data-lucide="instagram" class="w-5 h-5"></i>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-instagram"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"
+                  />
+                </svg>
               </a>
+              <!-- Facebook -->
               <a
                 href="#"
                 class="w-10 h-10 rounded-lg bg-brand-olive/30 hover:bg-brand-sand hover:text-brand-darkolive flex items-center justify-center transition-colors"
               >
-                <i data-lucide="facebook" class="w-5 h-5"></i>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-facebook"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"
+                  />
+                </svg>
               </a>
+              <!-- LinkedIn -->
               <a
                 href="#"
                 class="w-10 h-10 rounded-lg bg-brand-olive/30 hover:bg-brand-sand hover:text-brand-darkolive flex items-center justify-center transition-colors"
               >
-                <i data-lucide="linkedin" class="w-5 h-5"></i>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-linkedin"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"
+                  />
+                </svg>
               </a>
             </div>
           </div>
@@ -848,6 +1454,15 @@
         iconOpen.classList.toggle("hidden");
         iconClose.classList.toggle("hidden");
       });
+
+      function openSellModal() {
+        alert(
+          "Para anunciar seu imóvel com a Sweet Home, preencha o formulário de contato ao final da página ou fale diretamente com nossa central via WhatsApp.",
+        );
+        document
+          .getElementById("contato")
+          .scrollIntoView({ behavior: "smooth" });
+      }
     </script>
   </body>
 </html>
